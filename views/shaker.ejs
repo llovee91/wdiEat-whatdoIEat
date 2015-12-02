@@ -1,50 +1,53 @@
 <div class="row">
-<div class="col-sm-6 col-sm-offset-1" id="food-icon-container"></div>
-<div class="col-sm-4">
+  <div class="col-sm-6 col-sm-offset-1" id="food-icon-container"></div>
+  <div class="col-sm-4">
     <h1>What do I eat?</h1>
     <form id="search-criteria" action="/result" method="post">
-        <div class="form-group">
-            <label>Near</label>
-            <input type="text" id="location" class="form-control" name="location" placeholder="Current Location">
-        </div>
-        <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
-        <input type="hidden" id="cll" class="form-control" name="cll">
-        <input type="hidden" id="currentCity" class="form-control" name="currentCity">
+      <div class="form-group">
+        <label>Near</label>
+        <input type="text" id="location" class="form-control" name="location" placeholder="Current Location">
+      </div>
+      <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
+      <input type="hidden" id="cll" class="form-control" name="cll">
+      <input type="hidden" id="currentCity" class="form-control" name="currentCity">
 
-        <div class="form-group">
-          <label>Search by keyword</label>
-            <input type="text" id="term" class="form-control" name="term" placeholder="burger, pizza, sushi...">
-        </div>
+      <div class="form-group">
+        <label>Search by keyword</label>
+        <input type="text" id="term" class="form-control" name="term" placeholder="burger, pizza, sushi...">
+      </div>
 
-        <!-- Create a container to hold all the cuisines options -->
-        <div class="form-group cuisines-container"></div>
+      <!-- Create a container to hold all the cuisines options -->
+      <div class="form-group cuisines-container"></div>
 
-        <div class="shake-chunk">
-          <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l" onclick="audio.play()">Locating...</button>
-        </div>
-        <p id="location-status">Loading Current Location...
-        </p>
+      <div class="shake-chunk">
+        <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l" onclick="audio.play()">Locating...</button>
+      </div>
+      <p id="location-status">Loading Current Location...</p>
     </form>
+  </div>
 </div>
-
 <script>
-  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "breakfast_brunch", "buffets", "chinese", "french", "german", "gluten_free", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "thai", "vegan", "vegetarian", "vietnamese"]
+  // array to hold the names of the images
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bakeries", "beer_and_wine", "breakfast_brunch", "bubbletea", "buffets", "chinese", "coffee", "desserts", "french", "german", "gluten_free", "greek", "icecream", "italian", "japanese", "juicebars", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "tea", "thai", "vegan", "vegetarian", "vietnamese"]
 
-  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Breakfast & Brunch", "Buffets", "Chinese", "French", "German", "Gluten-Free", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
+  // array to hold the labels for cuisines-options input fields
+  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Bakery", "Beer and Wine", "Breakfast & Brunch", "Bubble Tea", "Buffets", "Chinese", "Coffee", "Dessert", "French", "German", "Gluten-Free", "Greek", "Ice-cream and Frozen Yogurt", "Italian", "Japanese", "Juicery", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
 
+  // add the input fields for the cuisines-options
   for (var i = 0; i < categories.length; i++) {
     var option = "<label class='form-control'><input type='checkbox' name='cuisines' class='cuisines-options' value='"+foodIcons[i]+"'>"+categories[i]+"</label>"
     $('.cuisines-container').append(option)
   }
 
+  // add the images for each cuisine
   foodIcons.forEach(function(food){
     var image = "<img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>"
     $('#food-icon-container').append(image)
   })
 
+  // toggle image opacities when the associated cuisine is selected/deselected
   $('.cuisines-options').click(function() {
-    var cuisine = this.value
-    $('#'+cuisine).toggleClass("active-icon")
+    $('#'+this.value).toggleClass("active-icon")
   })
 
   // Create an empty variable used to hold the latitude and longitude retrieved from geolocation
@@ -98,14 +101,15 @@
       $(this).parent().addClass('checked')
     }
   })
+
   // when form is submitted to make a request to yelp...
   $('#shake').click(function(){
     // if location field is empty, then use the current city retrieved from freegeoip
     if ($('#location').val() === "" && current) {
-            $('#location').val(current)
-          }
+      $('#location').val(current)
+    }
     if ($('#cll').val() === ""){
-          $('#cll').val(cll)
-        }
+      $('#cll').val(cll)
+    }
   })
 </script>
