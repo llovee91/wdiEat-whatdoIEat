@@ -3,17 +3,19 @@
   <div class="restaurant-title-rating clearfix">
     <h1><%= chosen.name %></h1>
     <div>
-      <p>
-        <% for (var i = 0; i < chosen.categories.length; i++) { %>
-          <% if (i === 0){ %>
-            <span><%= chosen.categories[i][0] %></span>
-          <%} else {%>
-            <span> / <%= chosen.categories[i][0] %></span>
-            <% } %>
-        <% } %>
-      </p>
-    <img src=" <%= chosen.rating_img_url_large %>">
-    <p><a href="<%= chosen.url %>">See Restaurant on Yelp</a></p>
+
+    <p><img src=" <%= chosen.rating_img_url_large %>"></p><br>
+    <p><a href="<%= chosen.url %>">See Restaurant on Yelp</a></p><br>
+    <p>
+      <% for (var i = 0; i < chosen.categories.length; i++) { %>
+        <% if (i === 0){ %>
+          <span><%= chosen.categories[i][0] %></span>
+        <%} else {%>
+          <span> / <%= chosen.categories[i][0] %></span>
+          <% } %>
+      <% } %>
+    </p>
+
   </div>
   </div>
 

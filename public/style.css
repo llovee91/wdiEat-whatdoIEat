@@ -150,6 +150,11 @@ h1 {
     margin-top: 5px;
     float: right;
     height: 20px;
+
+}
+
+.restaurant-title-rating div p {
+  float: right;
 }
 
 .restaurant-title-rating {
