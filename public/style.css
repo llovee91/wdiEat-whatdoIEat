@@ -1,30 +1,26 @@
+#header-container {
+  padding-bottom: 0px;
+}
 
+.food-icons {
+  width: 100px;
+  height: 70px;
+  opacity: 0.2
+}
+
+.active-icon {
+  opacity: 1
+}
 @font-face {
     font-family: hamburgerFont;
     src: url(../font/HamburgerHeavenNF.ttf);
 }
 
 body {
-    /*background-image: url("/images/bgimages/burger.png");
-    /*background-color: #FCFCFC;*/
-    background-color: gray;
+    background-color: white;
     background-size: 450px;
     font-family: Open Sans, Helvetica, sans-serif;
     font-weight: bold;
-}
-
-#background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background-attachment: fixed;*/
-    background-size: 450px;
-    background-color: gray;
-    opacity: 0.4;
-    filter:alpha(opacity=50);
-    z-index: -1;
 }
 
 h1 {

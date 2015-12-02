@@ -1,6 +1,10 @@
-<div class="col-sm-6 col-sm-offset-3">
-    <h1>What do I eat?</h1>
+<div class="row">
+<div class="col-sm-6 col-sm-offset-1" id="food-icon-container">
 
+
+</div>
+<div class="col-sm-4">
+    <h1>What do I eat?</h1>
     <form id="search-criteria" action="/result" method="post">
         <div class="form-group">
             <label>Near</label>
@@ -107,9 +111,22 @@
         </p>
     </form>
 </div>
+
 <script>
-//Sound
-  var audio = new Audio("images/whoosh.mp3");
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "breakfast_brunch", "buffets", "chinese", "french", "german", "gluten_free"]
+
+  foodIcons.forEach(function(food){
+    var image = "<img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>"
+    $('#food-icon-container').append(image)
+  })
+
+  $('.cuisines-options').click(function() {
+    var cuisine = this.value
+    console.log(cuisine)
+    $('#'+cuisine).toggleClass("active-icon")
+  })
+
+
   // Create an empty variable used to hold the latitude and longitude retrieved from geolocation
   var latitude;
   var longitude;
@@ -170,16 +187,5 @@
     if ($('#cll').val() === ""){
           $('#cll').val(cll)
         }
-  // Logo Move
-  $(document).ready(function(e) {
-    width = "+=" + $(document).width()
-              $(".logo-all").animate({
-
-              left: width
-            }, 800, function() {
-              // if cll field is empty (which means geolocation failed), then use the longitude/latitude retrieved from freegeoip
-
-        })
-      })
-    })
+  })
 </script>
