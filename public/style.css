@@ -71,15 +71,6 @@ h1 {
     padding-bottom: 20px;
     background-color: #776666;
     box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;
-
-/*
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(255,255,255,1)), color-stop(0%, rgba(245,245,245,1)), color-stop(0%, rgba(0,0,0,1)), color-stop(0%, rgba(92,92,92,1)), color-stop(0%, rgba(138,138,138,1)), color-stop(83%, rgba(56,56,56,1)), color-stop(89%, rgba(56,56,56,1)), color-stop(100%, rgba(56,56,56,1)));
-    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 0%, rgba(0,0,0,1) 0%, rgba(92,92,92,1) 0%, rgba(138,138,138,1) 0%, rgba(56,56,56,1) 83%, rgba(56,56,56,1) 89%, rgba(56,56,56,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 0%, rgba(0,0,0,1) 0%, rgba(92,92,92,1) 0%, rgba(138,138,138,1) 0%, rgba(56,56,56,1) 83%, rgba(56,56,56,1) 89%, rgba(56,56,56,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 0%, rgba(0,0,0,1) 0%, rgba(92,92,92,1) 0%, rgba(138,138,138,1) 0%, rgba(56,56,56,1) 83%, rgba(56,56,56,1) 89%, rgba(56,56,56,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 0%, rgba(0,0,0,1) 0%, rgba(92,92,92,1) 0%, rgba(138,138,138,1) 0%, rgba(56,56,56,1) 83%, rgba(56,56,56,1) 89%, rgba(56,56,56,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#383838', GradientType=0 );
-*/
 }
 
 
@@ -123,52 +114,9 @@ h1 {
     color: #fff;
 }
 
-/*results container button*/
 
-.results-container button {
-    border-radius: 4px;
-    color: #000;
-    background: #ffa33a;
-    border: 0;
-    transition: all .5s ease;
-}
 
-.results-container button:hover {
-    background: #ffc52d;
-}
 
-.restaurant-buttons {
-    margin-bottom: 12px;
-}
-
-#restaurant-info h1 {
-    float: left;
-    margin: 0;
-}
-
-#yelp-rating-url {
-    margin-top: 5px;
-    float: right;
-    height: 20px;
-
-}
-
-#yelp-rating-url span {
-  float: right;
-}
-
-#restaurant-info {
-    margin-top: 20px;
-    margin-bottom: 2px;
-}
-
-/*.restaurant-image-container {
-    width: 100%;
-    background-size: cover;
-    height: 300px;
-    background-position: center center;
-    background-repeat: no-repeat;
-}*/
 
 .favorite {
   border: 2px solid grey;
@@ -203,40 +151,54 @@ a:hover, a:active {
     color: black;
 }
 
+#result-container {
+  padding: 0px;
+}
+
+#restaurant-info h1 {
+  float: left;
+  margin: 0;
+}
+
+#yelp-rating-url span {
+  float: right;
+}
+
 #restaurant-image, #faded-restaurant-image {
   width: 50%;
   padding: 0px;
   margin: 0px;
-  max-height: 450px;
 }
 
 #restaurant-image{
   float: left;
 }
 
+
 #faded-restaurant-image {
   float: right;
   opacity: 0.3;
 }
 
-#faded-restaurant-image-container {
-  width: 50%;
-}
-#result-container {
-  padding: 0px;
-}
-
-#restaurant-image-container {
-  position: relative
-}
-
 #list-on-image {
   position: absolute;
   width: 50%;
-  left: 454.656px;
+  left: 50%;
   list-style-type: none;
   padding: 0px;
+  background: rgba(255,255,255,0.8);
+  bottom: 65%;
+  text-align: center;
 }
+
+#list-on-image li {
+  font-size: 25px;
+}
+
+#list-on-image li:hover {
+  background: rgba(0,0,0,0.6);
+}
+
 
 
 /*frame that holds google map*/
