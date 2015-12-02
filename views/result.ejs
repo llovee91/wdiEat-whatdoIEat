@@ -1,27 +1,25 @@
 <div class="col-xs-2"></div>
 <div class="col-xs-8" id="result-container">
-  <div class="restaurant-title-rating clearfix">
+  <div id="restaurant-info" class="clearfix">
     <h1><%= chosen.name %></h1>
-    <div>
-
-    <p><img src=" <%= chosen.rating_img_url_large %>"></p><br>
-    <p><a href="<%= chosen.url %>">See Restaurant on Yelp</a></p><br>
-    <p>
-      <% for (var i = 0; i < chosen.categories.length; i++) { %>
-        <% if (i === 0){ %>
-          <span><%= chosen.categories[i][0] %></span>
-        <%} else {%>
-          <span> / <%= chosen.categories[i][0] %></span>
+    <div id="yelp-rating-url">
+      <span><img src=" <%= chosen.rating_img_url_large %>"></span><br>
+      <span><a href="<%= chosen.url %>">See Restaurant on Yelp</a></span><br>
+      <span>
+        <% for (var i = 0; i < chosen.categories.length; i++) { %>
+          <% if (i === (chosen.categories.length-1)){ %>
+            <span><%= chosen.categories[i][0] %> &nbsp;</span> 
+          <%} else {%>
+            <span>/ <%= chosen.categories[i][0] %></span>
           <% } %>
-      <% } %>
-    </p>
-
+        <% } %>
+      </span>
+    </div>
   </div>
-  </div>
 
 
-  <p>Phone Number: <%=chosen.display_phone %></p>
-  <p><%= chosen.location["display_address"].toString() %></p>
+  <span>Phone Number: <%=chosen.display_phone %></span><br>
+  <span><%= chosen.location["display_address"].toString() %></span>
 
 
   <div id="restaurant-image-container">
