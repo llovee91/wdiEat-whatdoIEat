@@ -141,18 +141,18 @@ h1 {
     margin-bottom: 12px;
 }
 
-.restaurant-title h1 {
+.restaurant-title-rating h1 {
     float: left;
     margin: 0;
 }
 
-.restaurant-title img {
+.restaurant-title-rating img {
     margin-top: 5px;
     float: right;
     height: 20px;
 }
 
-.restaurant-title {
+.restaurant-title-rating {
     margin-top: 20px;
     margin-bottom: 2px;
 }
@@ -198,10 +198,36 @@ a:hover, a:active {
     color: black;
 }
 
-#restaurant-image {
-  width: 500px;
+#restaurant-image, #faded-restaurant-image {
+  width: 50%;
+  padding: 0px;
+  margin: 0px;
+  max-height: 450px;
 }
 
+#restaurant-image{
+  float: left;
+}
+
+#faded-restaurant-image {
+  float: right;
+  opacity: 0.3;
+}
+
+#faded-restaurant-image-container {
+  width: 50%;
+}
+#result-container {
+  padding: 0px;
+}
+
+#test {
+  position: relative
+}
+
+#child {
+  position: absolute
+}
 /*frame that holds google map*/
 
 iframe {
