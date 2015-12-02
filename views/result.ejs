@@ -1,44 +1,41 @@
-<script src="/share.min.js"></script>
-
-<div class="container-fluid row">
-  <div class="col-xs-2"></div>
-  <div class="col-xs-8" id="result-container">
+<div class="col-xs-2"></div>
+<div class="col-xs-8" id="result-container">
   <div class="restaurant-title-rating clearfix">
     <h1><%= chosen.name %></h1>
+    <div>
+      <p>
+        <% for (var i = 0; i < chosen.categories.length; i++) { %>
+          <% if (i === 0){ %>
+            <span><%= chosen.categories[i][0] %></span>
+          <%} else {%>
+            <span> / <%= chosen.categories[i][0] %></span>
+            <% } %>
+        <% } %>
+      </p>
     <img src=" <%= chosen.rating_img_url_large %>">
+    <p><a href="<%= chosen.url %>">See Restaurant on Yelp</a></p>
+  </div>
   </div>
 
-  <p>
-    <% for (var i = 0; i < chosen.categories.length; i++) { %>
-      <% if (i === 0){ %>
-        <span><%= chosen.categories[i][0] %></span>
-      <%} else {%>
-        <span> / <%= chosen.categories[i][0] %></span>
-        <% } %>
-    <% } %>
-  </p>
+
+  <p>Phone Number: <%=chosen.display_phone %></p>
+  <p><%= chosen.location["display_address"].toString() %></p>
 
 
-  <div id="test">
+  <div id="restaurant-image-container">
     <img id="restaurant-image" src="<%= chosen.image_url.replace('ms.jpg', 'l.jpg')%>">
     <img id="faded-restaurant-image" src="<%= chosen.image_url.replace('ms.jpg', 'l.jpg')%>">
-    <p id="child">HEYYDDDD!</p>
+    <ul id="list-on-image">
+      <% if (user) {%>
+        <li><a id="save" href="/profile">Save to Favorites!</a></li>
+      <% } %>
+      <li><a href="#" id="shake-again">Try again!</a></li>
+      <li><a href="/" id="back">Back</a></li>
+    </ul>
   </div>
 
-    <p>Phone Number: <%=chosen.display_phone %></p>
-    <p><a href="<%= chosen.url %>">See Restaurant on Yelp</a></p>
 
 
-    <p><%= chosen.location["display_address"].toString() %></p>
-
-    <div class="restaurant-buttons">
-        <button id="shake-again">Try again!</button>
-        <a href="/"><button id="back">Back</button></a>
-         <% if (user) {%>
-          <a href="/profile"><button id="save">Save to Favorites!</button></a>
-         <% } %>
-<b class="J-share" href="#" data-service="facebook"> <button>Share On Facebook! <img id= "facebook-pic" src ="https://www.facebookbrand.com/img/fb-art.jpg"></button></b>
-    </div>
 
     <iframe
       width="100%"
@@ -50,7 +47,7 @@
     </iframe><br>
 </div>
 <div class="col-xs-2"></div>
-</div>
+
 
 
 <!-- Make the result accessible to javascript-->
@@ -60,12 +57,7 @@
 
 
 
-<script>
-      Share.init(document.getElementsByTagName('b'), {
-          title: 'WDI Eat: App for Picking Food',
-          url: 'http://whispering-sands-7431.herokuapp.com/',
-      });
-</script>
+
 
 <script>
   // reload the page for new result
