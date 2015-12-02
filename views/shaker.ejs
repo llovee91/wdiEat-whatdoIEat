@@ -1,8 +1,5 @@
 <div class="row">
-<div class="col-sm-6 col-sm-offset-1" id="food-icon-container">
-
-
-</div>
+<div class="col-sm-6 col-sm-offset-1" id="food-icon-container"></div>
 <div class="col-sm-4">
     <h1>What do I eat?</h1>
     <form id="search-criteria" action="/result" method="post">
@@ -20,89 +17,7 @@
         </div>
 
         <!-- Create a container to hold all the cuisines options -->
-        <div class="form-group cuisines-container">
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="newamerican"> American (New)
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="tradamerican"> American (Traditional)
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options"
-            value="asianfusion"> Asian Fusion
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="breakfast_brunch"> Breakfast and Brunch
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="buffets"> Buffets
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="chinese"> Chinese
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="french"> French
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="german"> German
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="gluten_free"> Gluten-Free
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="greek"> Greek
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="italian"> Italian
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="japanese"> Japanese
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="korean"> Korean
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="latin"> Latin
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="malaysian"> Malaysian
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="mediterranean"> Mediterranean
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="mexican"> Mexican
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="mideastern"> Middle Eastern
-          </label><label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="polish"> Polish
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="portuguese"> Portuguese
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="salad"> Salad
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="spanish"> Spanish
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="taiwanese"> Taiwanese
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="thai"> Thai
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="vegan"> Vegan
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="vegetarian"> Vegetarian
-          </label>
-          <label class="form-control">
-            <input type="checkbox" name="cuisines" class="cuisines-options" value="vietnamese"> Vietnamese
-          </label>
-        </div>
+        <div class="form-group cuisines-container"></div>
 
         <div class="shake-chunk">
           <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l" onclick="audio.play()">Locating...</button>
@@ -113,7 +28,14 @@
 </div>
 
 <script>
-  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "breakfast_brunch", "buffets", "chinese", "french", "german", "gluten_free"]
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "breakfast_brunch", "buffets", "chinese", "french", "german", "gluten_free", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "thai", "vegan", "vegetarian", "vietnamese"]
+
+  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Breakfast & Brunch", "Buffets", "Chinese", "French", "German", "Gluten-Free", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
+
+  for (var i = 0; i < categories.length; i++) {
+    var option = "<label class='form-control'><input type='checkbox' name='cuisines' class='cuisines-options' value='"+foodIcons[i]+"'>"+categories[i]+"</label>"
+    $('.cuisines-container').append(option)
+  }
 
   foodIcons.forEach(function(food){
     var image = "<img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>"
@@ -122,10 +44,8 @@
 
   $('.cuisines-options').click(function() {
     var cuisine = this.value
-    console.log(cuisine)
     $('#'+cuisine).toggleClass("active-icon")
   })
-
 
   // Create an empty variable used to hold the latitude and longitude retrieved from geolocation
   var latitude;
