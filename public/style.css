@@ -3,10 +3,24 @@
   background-color: #443862;
 }
 
+
+.food-icons:hover {
+  opacity: 1;
+}
+
 .food-icons {
-  width: 120px;
-  height: 80px;
+  display: inline-block;
+  vertical-align: top;
+  height: 75px;
+  width: 100px;
+  background-repeat: no-repeat;
   opacity: 0.3;
+  background-size: cover;
+  text-align: center;
+}
+
+#left-food-icon-container {
+  text-align: right;
 }
 
 .active-icon {
@@ -77,7 +91,7 @@ h1 {
 
 .cuisines-container {
   overflow: auto;
-  height: 270px;
+  height: 200px;
   overflow-x: hidden;
 }
 
@@ -102,10 +116,6 @@ h1 {
 
 .cuisines-options {
   display:none;
-}
-
-.checked {
-  background-color: skyblue;
 }
 
 /*Text inside results container*/

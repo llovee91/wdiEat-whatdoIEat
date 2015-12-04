@@ -1,8 +1,9 @@
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-1" id="food-icon-container"></div>
+  <form id="search-criteria" action="/result" method="post">
+  <div class="col-sm-3 col-sm-offset-1" id="left-food-icon-container"></div>
   <div class="col-sm-4">
     <h1>What do I eat?</h1>
-    <form id="search-criteria" action="/result" method="post">
+
       <div class="form-group">
         <label>Near</label>
         <input type="text" id="location" class="form-control" name="location" placeholder="Current Location">
@@ -17,32 +18,41 @@
       </div>
 
       <!-- Create a container to hold all the cuisines options -->
-      <div class="form-group cuisines-container"></div>
+      <!-- <div class="form-group cuisines-container"></div> -->
 
       <div class="shake-chunk">
-        <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l" onclick="audio.play()">Locating...</button>
+        <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l">Locating...</button>
       </div>
       <p id="location-status">Loading Current Location...</p>
-    </form>
+
   </div>
+  <div class="col-sm-3" id="right-food-icon-container"></div>
+  </form>
 </div>
 <script>
   // array to hold the names of the images
-  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bakeries", "beer_and_wine", "breakfast_brunch", "bubbletea", "buffets", "chinese", "coffee", "desserts", "french", "german", "gluten_free", "greek", "icecream", "italian", "japanese", "juicebars", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "tea", "thai", "vegan", "vegetarian", "vietnamese"]
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bakeries", "bbq","beer_and_wine", "breakfast_brunch", "bubbletea", "buffets", "chinese", "coffee", "desserts", "french", "german", "gluten_free", "greek", "icecream", "italian", "japanese", "juicebars", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "tea", "thai", "vegan", "vegetarian", "vietnamese"]
 
   // array to hold the labels for cuisines-options input fields
-  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Bakery", "Beer and Wine", "Breakfast & Brunch", "Bubble Tea", "Buffets", "Chinese", "Coffee", "Dessert", "French", "German", "Gluten-Free", "Greek", "Ice-cream and Frozen Yogurt", "Italian", "Japanese", "Juicery", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
+  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Bakery", "Barbeque", "Beer and Wine", "Breakfast & Brunch", "Bubble Tea", "Buffets", "Chinese", "Coffee", "Dessert", "French", "German", "Gluten-Free", "Greek", "Ice-cream and Frozen Yogurt", "Italian", "Japanese", "Juicery", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
 
   // add the input fields for the cuisines-options
-  for (var i = 0; i < categories.length; i++) {
-    var option = "<label class='form-control'><input type='checkbox' name='cuisines' class='cuisines-options' value='"+foodIcons[i]+"'>"+categories[i]+"</label>"
-    $('.cuisines-container').append(option)
-  }
-
+  // for (var i = 0; i < categories.length; i++) {
+  //   var option = "<label class='form-control'><input type='checkbox' name='cuisines' class='cuisines-options' value='"+foodIcons[i]+"'>"+categories[i]+"</label>"
+  //   $('.cuisines-container').append(option)
+  // }
+// <img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>
+  var imageCount = 0
   // add the images for each cuisine
   foodIcons.forEach(function(food){
-    var image = "<img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>"
-    $('#food-icon-container').append(image)
+    var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'>"+categories[imageCount]+"</div></input></label>"
+    if (imageCount < (foodIcons.length/2)) {
+      $('#left-food-icon-container').append(image)
+    } else {
+      $('#right-food-icon-container').append(image)
+    }
+
+    imageCount += 1
   })
 
   // toggle image opacities when the associated cuisine is selected/deselected
@@ -89,16 +99,6 @@
       $('#location-status').text('Current Location Service Disabled (Notes: This would affect the accuracy of result)') // inform the user the result of not allowing geolocation
       $('#shake').text('Find Food!')
       $('#shake').removeAttr('disabled') // allow the user to proceed
-    }
-  })
-
-  // change the color  of checkboxes if selected/deselected
-  $('.cuisines-options').click(function(){
-    if ($(this).parent().hasClass('checked')){
-      $(this).parent().removeClass('checked')
-    }
-    else {
-      $(this).parent().addClass('checked')
     }
   })
 
