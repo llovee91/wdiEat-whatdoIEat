@@ -125,8 +125,9 @@ h1 {
   margin-top: 50px;
 }
 .container-border {
-  border: 5px solid #A6F6AF;
+  border: 1px solid grey;
   border-radius: 25px;
+  padding: 0px;
 }
 
 .cuisines-container {
