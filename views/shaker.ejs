@@ -1,34 +1,26 @@
-
-
-
 <div class="row">
   <form id="search-criteria" action="/result" method="post">
-  <div class="col-sm-7 col-sm-offset-1" id="food-icon-container"></div>
-  <div class="col-sm-3 ">
-
-<h1>What do I eat?</h1>
-
-      <div class="form-group">
-        <label>I'm looking for a restaurant near</label>
-        <input type="text" id="location" class="form-control" name="location" placeholder="Current Location">
-      </div>
+    <div class="col-sm-7 col-sm-offset-1" id="food-icon-container"></div>
+    <div class="col-sm-3">
+      <div id="left-padding-20">
+      <h1>What do I eat?</h1>
       <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
       <input type="hidden" id="cll" class="form-control" name="cll">
       <input type="hidden" id="currentCity" class="form-control" name="currentCity">
 
       <div class="form-group">
-        <label>that serves</label>
-        <input type="text" id="term" class="form-control" name="term" placeholder="burger, pizza, sushi...">
+        <input type="text" id="location" class="form-control" name="location" placeholder="Near: Current Location">
+
       </div>
 
-      <!-- Create a container to hold all the cuisines options -->
-      <!-- <div class="form-group cuisines-container"></div> -->
+      <div class="form-group">
+        <input type="text" id="term" class="form-control" name="term" placeholder="Find: burger, pizza, sushi...">
+      </div>
 
-        <button disabled="true" type="submit" id="shake" class="btn btn-primary btn-block">Locating...</button>
-      <p id="location-status">Loading Current Location...</p>
-
-  </div>
-  <!-- <div class="col-sm-3" id="right-food-icon-container"></div> -->
+      <button disabled="true" type="submit" id="shake" class="btn btn-primary btn-block">Locating...</button>
+      <!-- <p id="location-status">Loading Current Location...</p> -->
+    </div>
+    </div>
   </form>
 </div>
 <script>
@@ -38,23 +30,11 @@
   // array to hold the labels for cuisines-options input fields
   var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Bubble Tea", "Chinese", "Coffee", "Dessert", "French", "German", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegetarian", "Vietnamese"]
 
-  // add the input fields for the cuisines-options
-  // for (var i = 0; i < categories.length; i++) {
-  //   var option = "<label class='form-control'><input type='checkbox' name='cuisines' class='cuisines-options' value='"+foodIcons[i]+"'>"+categories[i]+"</label>"
-  //   $('.cuisines-container').append(option)
-  // }
-// <img class='food-icons' src='images/"+food+".jpg' id='"+food+"'>
   var imageCount = 0
   // add the images for each cuisine
   foodIcons.forEach(function(food){
     var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'><span>"+categories[imageCount]+"</span></div></input></label>"
-    // if (imageCount < (foodIcons.length/2)) {
-    //   $('#left-food-icon-container').append(image)
-    // } else {
-    //   $('#right-food-icon-container').append(image)
-    // }
     $('#food-icon-container').append(image)
-
     imageCount += 1
   })
 
@@ -100,7 +80,7 @@
       $('#cll').val(latitude+','+longitude)
         $('#location-status').text('Current Location found!') // inform user location found
         $('#shake').removeAttr('disabled') // allow the user to proceed once finished locating
-        $('#shake').text('Find Food!')
+        $('#shake').text('Feeling Lucky!')
     }
 
     // if error..

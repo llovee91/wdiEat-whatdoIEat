@@ -1,12 +1,45 @@
-#header-container {
+#header-bar {
   padding-bottom: 0px;
-  background-color: #443862;
+  background-color: rgba(68, 58, 98, 0.95);
+  padding-left: 15px;
+  padding-right: 20px;
 }
 
-#header-container a{
+#header-bar a{
   color: #FFFBB7;
 }
 
+#header-bar ul li a{
+  color: rgba(68, 58, 98, 1);
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background: transparent;
+}
+
+#search-criteria label, #search-criteria h1 {
+  font-weight: bolder;
+  color: rgba(68, 68, 98, 1)
+}
+
+#header-bar .on-navbar {
+  color: #FFFBB7
+}
+
+.navbar-right a{
+  font-size: 16px;
+}
+
+.navbar-left {
+  height: 50px;
+  position: relative
+}
+
+.navbar-left a{
+  padding-top: 11px;
+  font-size: 20px;
+  position: absolute;
+}
 .food-icons:hover {
   opacity: 1;
   font-size: 12px;
@@ -25,15 +58,12 @@
   padding-top: 40px;
   color: black;
   border-radius: 55px;
-  margin: 4px;
+  margin: 3px;
+  border: 1px solid #443862;
 }
 
 .food-icons span{
   background-color: rgba(255,255,255,0.6)
-}
-
-#left-food-icon-container {
-  text-align: right;
 }
 
 .active-icon {
@@ -47,10 +77,6 @@
   font-size: 0px;
 }
 
-@font-face {
-    font-family: hamburgerFont;
-    src: url(../font/HamburgerHeavenNF.ttf);
-}
 
 body {
     background-color: white;
@@ -109,16 +135,35 @@ h1 {
     /*box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;*/
 }
 
+/*.input-no-border {
+  border: 0px;
+}
+
+.input-border {
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+}
+
+.input-border span {
+  padding: 10px;
+}
+
+input-placeholder {
+  font-weight: lighter
+}*/
+
 #shake {
-  background-color: #FFFBB7;
+  background-color: rgba(68, 58, 98, 0.9);
+  color: #FFFBB7;
+  font-weight: bolder;
 }
 
 #shake:hover {
-  color: #5B7C8D;
+  color: #FFFBB7;
 }
 
-h1 {
-  text-align: center;
+#left-padding-20 {
+  padding-left: 20px;
 }
 
 .container-fluid {
@@ -134,22 +179,6 @@ h1 {
   overflow: auto;
   height: 200px;
   overflow-x: hidden;
-}
-
-.logo-all{
-  font-family: hamburgerFont;
-  font-size: 50px;
-  float: left;
-  margin-left: 20px;
-  position: absolute;
-  z-index: 100000;
-
-}
-
-/*Main container bootstrap class*/
-
-.col-sm-6 {
-    color: white;
 }
 
 

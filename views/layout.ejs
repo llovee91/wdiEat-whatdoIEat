@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>wdiEat</title>
+		<title>wdiEat | What Do I Eat</title>
 	  <link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
 	  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/style.css">
@@ -17,13 +17,15 @@
 
 
 			<!-- navigation bar for when a session is found -->
-			<nav class ="navbar navbar-default navbar-static-top" id="header-container">
-				<div class="navbar-left"><a href="/">Homepage</a></div>
+			<nav class ="navbar navbar-default navbar-static-top" id="header-bar">
+				<div class="navbar-left">
+					<a id="homepage-logo" href="/">WDIEat</a>
+				</div>
 				<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<% if (user) {%>
-							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
+							<a class="dropdown-toggle on-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="/profile">My Favorites</a></li>
 								<% if (user.local.name) {%>
@@ -33,7 +35,7 @@
 							</ul>
 						<!-- navigation bar for when no session is found -->
 						<% } else {%>
-							<a class="btn-md" href="/session" class="btn btn-default btn-sm">My Favorites</a>
+							<a class="btn-md on-navbar" href="/session" class="btn btn-default btn-sm">My Favorites</a>
 						<% } %>
 					</li>
 				</ul>
