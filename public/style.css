@@ -3,20 +3,33 @@
   background-color: #443862;
 }
 
+#header-container a{
+  color: #FFFBB7;
+}
 
 .food-icons:hover {
   opacity: 1;
+  font-size: 12px;
 }
 
 .food-icons {
   display: inline-block;
+  font-size: 0px;
   vertical-align: top;
-  height: 75px;
-  width: 100px;
+  height: 110px;
+  width: 110px;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.4;
   background-size: cover;
   text-align: center;
+  padding-top: 40px;
+  color: black;
+  border-radius: 55px;
+  margin: 4px;
+}
+
+.food-icons span{
+  background-color: rgba(255,255,255,0.6)
 }
 
 #left-food-icon-container {
@@ -24,8 +37,16 @@
 }
 
 .active-icon {
-  opacity: 1
+  opacity: 1;
+  font-size: 12px;
+
 }
+
+.flash-icon {
+  opacity: 0.9;
+  font-size: 0px;
+}
+
 @font-face {
     font-family: hamburgerFont;
     src: url(../font/HamburgerHeavenNF.ttf);
@@ -85,9 +106,28 @@ h1 {
     margin-top: 60px;
     padding-bottom: 20px;
     background-color: #776666;
-    box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;
+    /*box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;*/
 }
 
+#shake {
+  background-color: #FFFBB7;
+}
+
+#shake:hover {
+  color: #5B7C8D;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container-fluid {
+  margin-top: 50px;
+}
+.container-border {
+  border: 5px solid #A6F6AF;
+  border-radius: 25px;
+}
 
 .cuisines-container {
   overflow: auto;

@@ -1,11 +1,15 @@
+
+
+
 <div class="row">
   <form id="search-criteria" action="/result" method="post">
-  <div class="col-sm-3 col-sm-offset-1" id="left-food-icon-container"></div>
-  <div class="col-sm-4">
-    <h1>What do I eat?</h1>
+  <div class="col-sm-7 col-sm-offset-1" id="food-icon-container"></div>
+  <div class="col-sm-3 container-border">
+
+<h1>What do I eat?</h1>
 
       <div class="form-group">
-        <label>Near</label>
+        <label>I'm looking for a restaurant near</label>
         <input type="text" id="location" class="form-control" name="location" placeholder="Current Location">
       </div>
       <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
@@ -13,28 +17,26 @@
       <input type="hidden" id="currentCity" class="form-control" name="currentCity">
 
       <div class="form-group">
-        <label>Search by keyword</label>
+        <label>that serves</label>
         <input type="text" id="term" class="form-control" name="term" placeholder="burger, pizza, sushi...">
       </div>
 
       <!-- Create a container to hold all the cuisines options -->
       <!-- <div class="form-group cuisines-container"></div> -->
 
-      <div class="shake-chunk">
-        <button disabled="true" type="submit" id="shake" class="btn btn-warning btn-l">Locating...</button>
-      </div>
+        <button disabled="true" type="submit" id="shake" class="btn btn-primary btn-block">Locating...</button>
       <p id="location-status">Loading Current Location...</p>
 
   </div>
-  <div class="col-sm-3" id="right-food-icon-container"></div>
+  <!-- <div class="col-sm-3" id="right-food-icon-container"></div> -->
   </form>
 </div>
 <script>
   // array to hold the names of the images
-  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bakeries", "bbq","beer_and_wine", "breakfast_brunch", "bubbletea", "buffets", "chinese", "coffee", "desserts", "french", "german", "gluten_free", "greek", "icecream", "italian", "japanese", "juicebars", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "salad", "spanish", "taiwanese", "tea", "thai", "vegan", "vegetarian", "vietnamese"]
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bbq", "breakfast_brunch", "bubbletea", "chinese", "coffee", "desserts", "french", "german", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "spanish", "taiwanese", "tea", "thai", "vegetarian", "vietnamese"]
 
   // array to hold the labels for cuisines-options input fields
-  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Bakery", "Barbeque", "Beer and Wine", "Breakfast & Brunch", "Bubble Tea", "Buffets", "Chinese", "Coffee", "Dessert", "French", "German", "Gluten-Free", "Greek", "Ice-cream and Frozen Yogurt", "Italian", "Japanese", "Juicery", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Salad", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegan", "Vegetarian", "Vietnamese"]
+  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Bubble Tea", "Chinese", "Coffee", "Dessert", "French", "German", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegetarian", "Vietnamese"]
 
   // add the input fields for the cuisines-options
   // for (var i = 0; i < categories.length; i++) {
@@ -45,12 +47,13 @@
   var imageCount = 0
   // add the images for each cuisine
   foodIcons.forEach(function(food){
-    var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'>"+categories[imageCount]+"</div></input></label>"
-    if (imageCount < (foodIcons.length/2)) {
-      $('#left-food-icon-container').append(image)
-    } else {
-      $('#right-food-icon-container').append(image)
-    }
+    var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'><span>"+categories[imageCount]+"</span></div></input></label>"
+    // if (imageCount < (foodIcons.length/2)) {
+    //   $('#left-food-icon-container').append(image)
+    // } else {
+    //   $('#right-food-icon-container').append(image)
+    // }
+    $('#food-icon-container').append(image)
 
     imageCount += 1
   })
@@ -58,11 +61,17 @@
   // toggle image opacities when the associated cuisine is selected/deselected
   $('.cuisines-options').click(function() {
     $('#'+this.value).toggleClass("active-icon")
+    clearFlash()
   })
 
+  $('.cuisines-options').on('mouseout', function() {
+    console.log('lovely')
+  })
+
+
   // Create an empty variable used to hold the latitude and longitude retrieved from geolocation
-  var latitude;
-  var longitude;
+  var latitude = null
+  var longitude = null
 
   // Make a Post request to get an estimate of the current city and location (longitude & latitude)
   $.ajax({
@@ -112,4 +121,20 @@
       $('#cll').val(cll)
     }
   })
+
+  var clear =  null
+  var random = null
+  function clearFlash() {
+    clearInterval(foodIconFlash)
+    $('.food-icons').removeClass('flash-icon')
+  }
+  var foodIconFlash = setInterval(function() {
+    random = Math.floor(Math.random()*27)
+    if (clear || clear == 0) {
+      $($('.food-icons')[clear]).toggleClass('flash-icon')
+    }
+    clear = null
+       $($('.food-icons')[random]).toggleClass('flash-icon')
+       clear = random
+  }, 2000)
 </script>
