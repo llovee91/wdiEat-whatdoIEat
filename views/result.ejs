@@ -3,11 +3,18 @@
   <div class="row">
     <div class="col-xs-6" id="restaurant-name-rating">
       <div class="result-name-rating">
-        <h4><%= chosen.name %></h4>
+        <h4><%= chosen.name %>
+          <% if (user) {%>
+            <a id="save" href="#"><img id="save-result" src="images/heart.png"></a>
+          <% } %>
+        </h4>
         <img src=" <%= chosen.rating_img_url %>"><br>
       </div>
     </div>
-    <div class="col-xs-6"></div>
+    <div class="col-xs-6 text-align-right">
+
+        <a href="#" id="shake-again">Try again</a>
+    </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
@@ -79,4 +86,10 @@
         }
       })
   })
+
+  setInterval(function(){
+    var imageHeight = $('#restaurant-image').css('height')
+    $('iframe').css('height', imageHeight)
+  }, 1)
+
 </script>
