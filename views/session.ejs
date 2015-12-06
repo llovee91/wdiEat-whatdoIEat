@@ -5,19 +5,19 @@
   <div class="col-xs-4"></div>
   <div id="session-form" class="col-xs-4">
     <div id="login">
-    <h3>Sign in </h3>
+    <h3>Sign in</h3>
     <!-- <span>Enter your <strong>email address</strong> and <strong>password</strong></span> -->
     <form action="/login" method="post">
-      <div class="horizontal-padding">
         <div class="form-group">
           <label>Email</label>
-            <input type="text" placeholder="you@domain.suffix" name="email" required>
+            <input type="text" class="form-control" placeholder="you@domain.suffix" name="email" required>
         </div>
         <div class="form-group">
+          <label>Password</label>
             <input type="password" class="form-control" placeholder="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-block session-button">Sign in</button>
-      </div>
+
     </form>
 
     <hr>
@@ -26,25 +26,27 @@
   <div id="signup" class="hidden">
     <h3>Sign up</h3>
     <form action="/signup" method="post">
-      <div class="horizontal-padding">
         <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="username" required>
+          <label>Username</label>
+            <input type="text" class="form-control" name="name" placeholder="Username" required>
         </div>
         <div class="form-group">
+          <label>Email</label>
             <input type="text" class="form-control" name="email" placeholder="you@domain.suffix" required>
         </div>
         <div class="form-group">
+          <label>Password</label>
             <input type="password" class="form-control" name="password" placeholder="password" required>
         </div>
         <button type="submit" class="btn btn-block session-button">Signup</button>
-      </div>
+
     </form>
     <hr>
     <p>Already have an account? Go <a href="#" class="switch">Login!</a></p>
   </div>
 
 
-  <hp>Or Login With <a href="/auth/facebook" class="btn btn-primary">Facebook</a></p>
+  <hp>Or Login With <a href="/auth/facebook"><button id="facebook-button" class="btn btn-primary">Facebook</button></a></p>
 
   </div>
 

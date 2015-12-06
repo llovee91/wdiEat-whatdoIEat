@@ -123,7 +123,7 @@ a:hover, a:active {
   font-weight: bolder;
 }
 
-#find-result:hover {
+#find-result:hover, .session-button:hover {
   color: #FFFBB7;
 }
 
@@ -185,8 +185,12 @@ iframe {
   display: none;
 }
 
-#session-form {
+#session-form h3{
   text-align: center;
+}
+
+#facebook-button {
+  padding: 1px 5px 1px 5px;
 }
 
 #session-form span{
