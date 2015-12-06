@@ -23,6 +23,7 @@
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
+							<!-- include the option to logout and change account setting if session exists -->
 							<% if (user) {%>
 								<a class="dropdown-toggle on-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
 								<ul class="dropdown-menu">
@@ -34,6 +35,7 @@
 								</ul>
 							<!-- navigation bar for when no session is found -->
 							<% } else {%>
+								<!-- if session doesn't exist, direct user to login/signup -->
 								<a class="btn-md on-navbar" href="/session" class="btn btn-default btn-sm">My Favorites</a>
 							<% } %>
 						</li>

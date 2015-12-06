@@ -35,6 +35,7 @@ a:hover, a:active {
 
 #header-bar a{
   color: #FFFBB7;
+  font-weight: bolder;
 }
 
 #header-bar .on-navbar {

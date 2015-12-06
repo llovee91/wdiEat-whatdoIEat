@@ -4,6 +4,7 @@
     <div class="col-xs-6" id="restaurant-name-rating">
       <div class="result-name-rating">
         <h4><%= chosen.name %>
+          <!-- provide option to save result if session exists -->
           <% if (user) {%>
             <a href="/profile"><img id="save-result" src="images/heart.png"></a>
           <% } %>
@@ -19,6 +20,7 @@
     <div class="col-xs-6">
       <span>
         <% for (var i = 0; i < chosen.categories.length; i++) { %>
+          <!-- doesn't need to have "/" for the first element in the categories array -->
           <% if (i === 0){ %>
             <span><%= chosen.categories[i][0] %></span>
           <%} else {%>
@@ -67,10 +69,6 @@
     var favoriteId = favorite.id
     $('#guest-proceed').attr('href','/session?favoriteId='+favoriteId)
   }
-  console.log(favorite)
-  // get the image_url of the result and replace ms.jpg with o.jpg to get a larger image
-  // var imageURL = favorite.image_url.replace('ms.jpg', 'o.jpg')
-  // $('#restaurant-image').attr('src', imageURL)
 
   $('#save').on('click', function() {
     // if a user is logged in, then  make a POST request to favorites/:user_id
@@ -86,6 +84,7 @@
       })
   })
 
+  // set the iframe to be the same height as the restaurant-image 
   setInterval(function(){
     var imageHeight = $('#restaurant-image').css('height')
     $('iframe').css('height', imageHeight)

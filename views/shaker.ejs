@@ -3,26 +3,27 @@
     <div class="col-sm-7 col-sm-offset-1" id="food-icon-container"></div>
     <div class="col-sm-3">
       <div id="left-padding-20">
-      <h1>What do I eat?</h1>
-      <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
-      <input type="hidden" id="cll" class="form-control" name="cll">
-      <input type="hidden" id="currentCity" class="form-control" name="currentCity">
+        <h1>What do I eat?</h1>
+        <!-- Make an hidden input to store the longitutde/latitude(cll) and the city that the user is currently accessing the app from -->
+        <input type="hidden" id="cll" class="form-control" name="cll">
+        <input type="hidden" id="currentCity" class="form-control" name="currentCity">
 
-      <div class="form-group">
-        <input type="text" id="location" class="form-control" name="location" placeholder="Near: Current Location">
+        <div class="form-group">
+          <input type="text" id="location" class="form-control" name="location" placeholder="Near: Current Location">
+        </div>
 
+        <div class="form-group">
+          <input type="text" id="term" class="form-control" name="term" placeholder="Find: burger, pizza, sushi...">
+        </div>
+
+        <!-- disable to stop the user from submitting before current lcoation is found -->
+        <button disabled="true" type="submit" id="find-result" class="btn btn-primary btn-block">Locating...</button>
+        <!-- <p id="location-status">Loading Current Location...</p> -->
       </div>
-
-      <div class="form-group">
-        <input type="text" id="term" class="form-control" name="term" placeholder="Find: burger, pizza, sushi...">
-      </div>
-
-      <button disabled="true" type="submit" id="find-result" class="btn btn-primary btn-block">Locating...</button>
-      <!-- <p id="location-status">Loading Current Location...</p> -->
-    </div>
     </div>
   </form>
 </div>
+
 <script>
   // array to hold the names of the images
   var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bbq", "breakfast_brunch", "bubbletea", "chinese", "coffee", "desserts", "french", "german", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "spanish", "taiwanese", "tea", "thai", "vegetarian", "vietnamese"]
@@ -30,12 +31,12 @@
   // array to hold the labels for cuisines-options input fields
   var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Bubble Tea", "Chinese", "Coffee", "Dessert", "French", "German", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegetarian", "Vietnamese"]
 
-  var imageCount = 0
+  var count = 0
   // add the images for each cuisine
   foodIcons.forEach(function(food){
-    var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'><span>"+categories[imageCount]+"</span></div></input></label>"
+    var image = "<label><input type='checkbox' name='cuisines' class='cuisines-options' value='"+food+"'><div id='"+ food +"' class='food-icons' style='background-image: url(images/"+food+".jpg)'><span>"+categories[count]+"</span></div></input></label>"
     $('#food-icon-container').append(image)
-    imageCount += 1
+    count += 1
   })
 
   // toggle image opacities when the associated cuisine is selected/deselected
@@ -43,11 +44,6 @@
     $('#'+this.value).toggleClass("active-icon")
     clearFlash()
   })
-
-  $('.cuisines-options').on('mouseout', function() {
-    console.log('lovely')
-  })
-
 
   // Create an empty variable used to hold the latitude and longitude retrieved from geolocation
   var latitude = null
@@ -78,15 +74,13 @@
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       $('#cll').val(latitude+','+longitude)
-        $('#location-status').text('Current Location found!') // inform user location found
         $('#find-result').removeAttr('disabled') // allow the user to proceed once finished locating
         $('#find-result').text('Feeling Lucky!')
     }
 
     // if error..
     function error() {
-      $('#location-status').text('Current Location Service Disabled (Notes: This would affect the accuracy of result)') // inform the user the result of not allowing geolocation
-      $('#find-result').text('Find Food!')
+      $('#find-result').text('Feeling Lucky!')
       $('#find-result').removeAttr('disabled') // allow the user to proceed
     }
   })
@@ -102,19 +96,24 @@
     }
   })
 
-  var clear =  null
-  var random = null
+  // create temporary variables
+  var clear =  null //temporary
+  var random = null //temporary
+
+  // write a function to clear "foodIconFlash" as soon as the user selects one of the cuisines (to avoid confusion of selected cuisines)
   function clearFlash() {
     clearInterval(foodIconFlash)
     $('.food-icons').removeClass('flash-icon')
   }
+
+  // animate the food-icons
   var foodIconFlash = setInterval(function() {
-    random = Math.floor(Math.random()*27)
-    if (clear || clear == 0) {
+    random = Math.floor(Math.random()*27) // randomly choose a number between 0 - 27
+    if (clear || clear == 0) { // clear previous flashed icon
       $($('.food-icons')[clear]).toggleClass('flash-icon')
     }
     clear = null
-       $($('.food-icons')[random]).toggleClass('flash-icon')
-       clear = random
+    $($('.food-icons')[random]).toggleClass('flash-icon') // make the selected icon flash
+    clear = random
   }, 2000)
 </script>
