@@ -7,6 +7,11 @@
 
 #header-bar a{
   color: #FFFBB7;
+
+}
+
+#try-again button {
+  color: rgba(68, 58, 98, 0.9);
 }
 
 #header-bar ul li a{
@@ -184,7 +189,17 @@ a:hover, a:active {
 }
 
 #save-result {
-  height: 19px;
+  height: 16px;
+  opacity: 0.4;
+}
+
+#save-result:hover{
+  opacity: 1;
+
+}
+
+.result-name-rating a:hover {
+    border-bottom: 0px;
 }
 
 iframe {

@@ -5,15 +5,14 @@
       <div class="result-name-rating">
         <h4><%= chosen.name %>
           <% if (user) {%>
-            <a id="save" href="#"><img id="save-result" src="images/heart.png"></a>
+            <a id="save" href="/profile"><img id="save-result" src="images/heart.png"></a>
           <% } %>
         </h4>
         <img src=" <%= chosen.rating_img_url %>"><br>
       </div>
     </div>
     <div class="col-xs-6 text-align-right">
-
-        <a href="#" id="shake-again">Try again</a>
+        <a href="#" id="try-again"><button>Try again</button></a>
     </div>
   </div>
   <div class="row">
@@ -55,7 +54,7 @@
 
 <script>
   // reload the page for new result
-  $('#shake-again').on('click',function(evt){
+  $('#try-again').on('click',function(evt){
     location.reload()
   })
     var favorite = JSON.parse($('#result').text())
