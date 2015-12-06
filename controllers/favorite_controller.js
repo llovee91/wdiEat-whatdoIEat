@@ -16,7 +16,7 @@ function create(req, res) {
   favorite.address = req.body.address
   favorite.categories = req.body.categories // array
   favorite.image_url = req.body.image_url
-  favorite.rating_img_url_large = req.body.rating_img_url_large
+  favorite.rating_img_url = req.body.rating_img_url
   favorite._owner = req.body._owner // setting reference to the user
 
   // save favorite

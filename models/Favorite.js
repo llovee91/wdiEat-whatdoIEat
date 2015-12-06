@@ -12,7 +12,7 @@ var favoriteSchema = Schema({
   address: String,
   categories: Array,
   image_url: String,
-  rating_img_url_large: String,
+  rating_img_url: String,
   id: String
 })
 

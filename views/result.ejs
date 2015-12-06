@@ -5,7 +5,7 @@
       <div class="result-name-rating">
         <h4><%= chosen.name %>
           <% if (user) {%>
-            <a id="save" href="/profile"><img id="save-result" src="images/heart.png"></a>
+            <a href="/profile"><img id="save-result" src="images/heart.png"></a>
           <% } %>
         </h4>
         <img src=" <%= chosen.rating_img_url %>"><br>
@@ -67,7 +67,7 @@
     var favoriteId = favorite.id
     $('#guest-proceed').attr('href','/session?favoriteId='+favoriteId)
   }
-
+  console.log(favorite)
   // get the image_url of the result and replace ms.jpg with o.jpg to get a larger image
   // var imageURL = favorite.image_url.replace('ms.jpg', 'o.jpg')
   // $('#restaurant-image').attr('src', imageURL)
@@ -79,7 +79,7 @@
         method: 'POST',
         contentType: 'application/json',
         // pass the information to be saved into the new Favorite object
-        data: JSON.stringify({"name": favorite.name, "rating": favorite.rating, url: favorite.url , display_phone: favorite.display_phone, address: address, categories: favorite.categories, image_url: favorite.image_url, rating_img_url_large: favorite.rating_img_url_large, _owner: userId, id: favorite.id}),
+        data: JSON.stringify({"name": favorite.name, "rating": favorite.rating, url: favorite.url , display_phone: favorite.display_phone, address: address, categories: favorite.categories, image_url: favorite.image_url, rating_img_url: favorite.rating_img_url, _owner: userId, id: favorite.id}),
         success: function(data) {
           console.log('COOL!')
         }

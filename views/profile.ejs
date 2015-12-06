@@ -25,7 +25,7 @@
           categories.push(" "+ categoriesArray[i][0])
         }
 
-        var entry = '<div class="favorite row"><div class="col-xs-4"><img src="' + favorite.image_url.replace('ms.jpg','ls.jpg') + '"/><br><button class="deleteFavorite" id="' + favorite._id + '">Delete</button><br><a href="favorite/' + favorite._id +  '"><button>See Restaurant</button></a></div><div class="col-xs-8"><p>' + favorite.name + '</p><p>'+ categories.toString() +'</p><p>Address: '+ favorite.address +'</p><p>' + favorite.display_phone  + '</p><img src="' + favorite.rating_img_url_large + '"/><br><a href="' + favorite.url + '"> See Yelp Page</a><br></div>'
+        var entry = '<div class="favorite row"><div class="col-xs-4"><img src="' + favorite.image_url.replace('ms.jpg','ls.jpg') + '"/><br><button class="deleteFavorite" id="' + favorite._id + '">Delete</button><br><a href="favorite/' + favorite._id +  '"><button>See Restaurant</button></a></div><div class="col-xs-8"><p>' + favorite.name + '</p><p>'+ categories.toString() +'</p><p>Address: '+ favorite.address +'</p><p>' + favorite.display_phone  + '</p><img src="' + favorite.rating_img_url + '"/><br><a href="' + favorite.url + '"> See Yelp Page</a><br></div>'
         $('#favorites').append(entry)
 
         $delete = $('#'+favorite._id) // select the delete button by id

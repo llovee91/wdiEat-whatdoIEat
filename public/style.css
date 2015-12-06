@@ -14,6 +14,10 @@
   color: rgba(68, 58, 98, 0.9);
 }
 
+#go-profile {
+  color: rgba(68, 58, 98, 0.9);
+}
+
 #header-bar ul li a{
   color: rgba(68, 58, 98, 1);
 }
@@ -195,7 +199,6 @@ a:hover, a:active {
 
 #save-result:hover{
   opacity: 1;
-
 }
 
 .result-name-rating a:hover {

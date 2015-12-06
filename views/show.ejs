@@ -1,40 +1,55 @@
-<div class="results-container">
-
-    <div class="restaurant-title clearfix">
-        <h1><%= favorite.name %></h1>
-        <img src=" <%= favorite.rating_img_url_large %>">
+<div class="col-xs-2"></div>
+<div class="col-xs-8">
+  <div class="row">
+    <div class="col-xs-6" id="restaurant-name-rating">
+      <div class="result-name-rating">
+        <h4><%= favorite.name %></h4>
+        <img src=" <%= favorite.rating_img_url %>"><br>
+      </div>
     </div>
-
-    <!-- do a for loop to grab only the first element from every array -->
-    <% for (var i = 0; i < favorite.categories.length; i++) { %>
-      <% if (i === 0){ %>
-        <span><%= favorite.categories[i][0] %></span>
-      <% } else {%>
-        <span>,<%= favorite.categories[i][0] %></span>
-      <% } %>
-    <% } %>
-
-<!-- make an img tag to hold the restaurant picture-->
-<div class="restaurant-image-container" style="background-image: url(<%= favorite.image_url.replace('ms.jpg', 'o.jpg') %>)"></div>
-
-  <p>phone-number: <%=favorite.display_phone %></p>
-  <p><a href="<%= favorite.url %>">See Restaurant on Yelp</a></p>
-
-<!-- Make an iframe to hold the embedded map-->
-<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCvB_F_S_FrDlcGvJkz-3LxCtcVBCn55hw&q=<%= favorite.name %>,<%= favorite.address%>"
- allowfullscreen>
-</iframe><br>
-<!-- Make the favorite object accessible to javascript -->
-<div id="result" style="display: none"><%=JSON.stringify(favorite) %></div>
-<!-- Back button to go back to the profile -->
-<a href="/profile"><button>Back</button></a>
-
+    <div class="col-xs-6 text-align-right">
+        <a href="/profile" id="go-profile"><button>Back</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <span>
+        <% for (var i = 0; i < favorite.categories.length; i++) { %>
+          <% if (i === 0){ %>
+            <span><%= favorite.categories[i][0] %></span>
+          <%} else {%>
+            <span>/ <%= favorite.categories[i][0] %></span>
+          <% } %>
+        <% } %>
+      </span><br>
+      <span>Phone Number: <%=favorite.display_phone %></span><br>
+      <span><%= favorite.address %></span>
+    </div>
+    <div class="col-xs-6">
+      <div id="restaurant-link-category">
+        <br><br>
+        <a href="<%= favorite.url %>">See Restaurant on Yelp</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 padding-right-0">
+      <img id="restaurant-image" src="<%= favorite.image_url.replace('ms.jpg', '348s.jpg')%>">
+    </div>
+    <div class="col-xs-6">
+      <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCvB_F_S_FrDlcGvJkz-3LxCtcVBCn55hw&q=<%= favorite.name %>,<%= favorite.address%>"
+       allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 </div>
-
+<div class="col-xs-2"></div>
 
 <script>
-  // change the image size returned from yelp
-  var favorite = JSON.parse($('#result').text())
-  var imageURL = favorite.image_url.replace('ms.jpg', 'o.jpg')
-  $('#restaurant-image').attr('src', imageURL)
+
+  var imageHeight = $('#restaurant-image').css('height')
+  setInterval(function(){
+    var imageHeight = $('#restaurant-image').css('height')
+    $('iframe').css('height', imageHeight)
+  }, 1)
 </script>
