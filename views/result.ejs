@@ -1,41 +1,45 @@
 <div class="col-xs-2"></div>
-<div class="col-xs-8" id="result-container">
-  <div id="restaurant-info-container" class="row clearfix">
-    <div id="restaurant-info" class="col-xs-6">
-      <h1><%= chosen.name %></h1><br><br>
-      <span>Phone Number: <%=chosen.display_phone %></span><br>
-      <span><%= chosen.location["display_address"][0] %>, <%= chosen.location["display_address"][2] %> </span>
+<div class="col-xs-8">
+  <div class="row">
+    <div class="col-xs-6" id="restaurant-name-rating">
+      <div class="result-name-rating">
+        <h4><%= chosen.name %></h4>
+        <img src=" <%= chosen.rating_img_url %>"><br>
+      </div>
     </div>
-    <div id="yelp-rating-url" class="col-xs-6">
-      <span><img src=" <%= chosen.rating_img_url_large %>"></span><br><br>
-      <span><a href="<%= chosen.url %>">See Restaurant on Yelp</a></span><br>
+    <div class="col-xs-6"></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
       <span>
         <% for (var i = 0; i < chosen.categories.length; i++) { %>
-          <% if (i === (chosen.categories.length-1)){ %>
+          <% if (i === 0){ %>
             <span><%= chosen.categories[i][0] %></span>
           <%} else {%>
-            <span>&nbsp;/ <%= chosen.categories[i][0] %></span>
+            <span>/ <%= chosen.categories[i][0] %></span>
           <% } %>
         <% } %>
-      </span>
+      </span><br>
+      <span>Phone Number: <%=chosen.display_phone %></span><br>
+      <span><%= chosen.location["display_address"][0] %>, <%= chosen.location["display_address"][1] %> <%= chosen.location["display_address"][2] %> </span>
+    </div>
+    <div class="col-xs-6">
+      <div id="restaurant-link-category">
+        <br><br>
+        <a href="<%= chosen.url %>">See Restaurant on Yelp</a>
+      </div>
     </div>
   </div>
-
-  <div id="restaurant-image-container">
-    <img id="restaurant-image" src="<%= chosen.image_url.replace('ms.jpg', '348s.jpg')%>">
-    <img id="faded-restaurant-image" src="<%= chosen.image_url.replace('ms.jpg', '348s.jpg')%>">
-    <ul id="list-on-image">
-      <% if (user) {%>
-        <a id="save" href="/profile"><li>Save to Favorites!</li></a>
-      <% } %>
-      <a href="#" id="shake-again"><li>Try again!</li></a>
-      <a href="/" id="back"><li>Back</li></a>
-    </ul>
+  <div class="row">
+    <div class="col-xs-6 padding-right-0">
+      <img id="restaurant-image" src="<%= chosen.image_url.replace('ms.jpg', '348s.jpg')%>">
+    </div>
+    <div class="col-xs-6">
+      <iframe
+        frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=<%=cll%>&destination=<%=chosen.location["coordinate"]["latitude"]%>,<%=chosen.location["coordinate"]["longitude"]%>&key=AIzaSyCvB_F_S_FrDlcGvJkz-3LxCtcVBCn55hw" allowfullscreen>
+      </iframe>
+    </div>
   </div>
-
-  <iframe
-    frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=<%=cll%>&destination=<%=chosen.location["coordinate"]["latitude"]%>,<%=chosen.location["coordinate"]["longitude"]%>&key=AIzaSyCvB_F_S_FrDlcGvJkz-3LxCtcVBCn55hw" allowfullscreen>
-  </iframe><br>
 </div>
 <div class="col-xs-2"></div>
 

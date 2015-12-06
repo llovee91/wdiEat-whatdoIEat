@@ -77,6 +77,9 @@
   font-size: 0px;
 }
 
+span {
+  font-weight: normal;
+}
 
 body {
     background-color: white;
@@ -85,31 +88,19 @@ body {
     font-weight: bold;
 }
 
-h1 {
-    font-weight: 100;
+#restaurant-name-rating h4{
+  margin: 0px;
+  font-weight: bold;
 }
 
-/*WDI Logo*/
-
-#canvaslogo{
-  background-color: grey;
-  border-radius: 1000px;
-
-}
-#logo-text{
-  font-size: 40px;
-  position: absolute;
-  margin-top: 80px;
-  margin-left: 35px;
-  float: left;
+#restaurant-link-category {
+  float: right;
+  text-align: right;
+  vertical-align: text-bottom;
 }
 
-/*main nav bar header text and buttons*/
-
-.text-center {
-    color: white; /*name when logged in*/
-    margin-top: 20px;
-    position: sticky;
+#restaurant-image {
+  width: 100%
 }
 
 .btn-default {
@@ -135,22 +126,7 @@ h1 {
     /*box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;*/
 }
 
-/*.input-no-border {
-  border: 0px;
-}
 
-.input-border {
-  border: 1px solid #D0D0D0;
-  border-radius: 5px;
-}
-
-.input-border span {
-  padding: 10px;
-}
-
-input-placeholder {
-  font-weight: lighter
-}*/
 
 #shake {
   background-color: rgba(68, 58, 98, 0.9);
@@ -175,29 +151,10 @@ input-placeholder {
   padding: 0px;
 }
 
-.cuisines-container {
-  overflow: auto;
-  height: 200px;
-  overflow-x: hidden;
-}
-
-
-/*cuisines options*/
 
 .cuisines-options {
   display:none;
 }
-
-/*Text inside results container*/
-
-.results-container {
-    width: 100%;
-    color: #fff;
-}
-
-
-
-
 
 .favorite {
   border: 2px solid grey;
@@ -219,76 +176,18 @@ a:hover, a:active {
     border-bottom: 1px solid #ffdd8f;
 }
 
-.header {
-    margin-bottom: 20px;
-    margin-top: 10px;
+.padding-right-0 {
+  padding-right: 0px;
 }
 
-.results-info {
-    font-size: 18px;
-}
-
-.btn {
-    color: black;
-}
-
-#result-container {
-  padding: 0px;
-}
-
-#restaurant-info h1 {
-  float: left;
-  margin: 0;
-}
-
-#yelp-rating-url span {
-  float: right;
-}
-
-#restaurant-image, #faded-restaurant-image {
-  width: 50%;
-  padding: 0px;
-  margin: 0px;
-}
-
-#restaurant-image{
-  float: left;
-}
-
-
-#faded-restaurant-image {
-  float: right;
-  opacity: 0.3;
-}
-
-#list-on-image {
-  position: absolute;
-  width: 50%;
-  left: 50%;
-  list-style-type: none;
-  padding: 0px;
-  background: rgba(255,255,255,0.8);
-  bottom: 65%;
-  text-align: center;
-}
-
-#list-on-image li {
-  font-size: 25px;
-}
-
-#list-on-image li:hover {
-  background: rgba(0,0,0,0.6);
-}
-
-
-
-/*frame that holds google map*/
 
 iframe {
-  width: 100%;
-  height: 450px;
-  border: 0px;
+  width: 450px;
+  height: 456px;
+  border: 1px;
+  float: right;
 }
+
 /*facebook pic*/
 #facebook-pic{
   width: 15px;
