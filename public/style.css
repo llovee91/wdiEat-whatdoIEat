@@ -180,7 +180,10 @@ iframe {
     border-bottom: 0px;
 }
 
-
+/*session page*/
+.hidden {
+  display: none;
+}
 
 
 .favorite {
