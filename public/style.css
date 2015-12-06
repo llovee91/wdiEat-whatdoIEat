@@ -117,7 +117,7 @@ a:hover, a:active {
   padding-left: 20px;
 }
 
-#find-result {
+#find-result, .session-button {
   background-color: rgba(68, 58, 98, 0.9);
   color: #FFFBB7;
   font-weight: bolder;
@@ -185,6 +185,17 @@ iframe {
   display: none;
 }
 
+#session-form {
+  text-align: center;
+}
+
+#session-form span{
+  margin-bottom: 5px;
+}
+/*.horizontal-padding {
+  padding-left: 90px;
+  padding-right: 90px;
+}*/
 
 .favorite {
   border: 2px solid grey;
