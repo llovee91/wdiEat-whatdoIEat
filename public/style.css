@@ -1,3 +1,31 @@
+/*.btn-default:hover {
+    background: #ffc52d;
+}*/
+
+/*general*/
+span {
+  font-weight: normal;
+}
+
+a {
+    color: #ffa31a;
+    transition: all .2s ease;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #ffdd8f;
+    text-decoration: none;
+    border-bottom: 1px solid #ffdd8f;
+}
+
+
+/*navigation bar and layout*/
+.container-fluid {
+  margin-top: 50px;
+}
+
 #header-bar {
   padding-bottom: 0px;
   background-color: rgba(68, 58, 98, 0.95);
@@ -7,36 +35,14 @@
 
 #header-bar a{
   color: #FFFBB7;
-
-}
-
-#try-again button {
-  color: rgba(68, 58, 98, 0.9);
-}
-
-#go-profile {
-  color: rgba(68, 58, 98, 0.9);
-}
-
-#header-bar ul li a{
-  color: rgba(68, 58, 98, 1);
-}
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background: transparent;
-}
-
-#search-criteria label, #search-criteria h1 {
-  font-weight: bolder;
-  color: rgba(68, 68, 98, 1)
 }
 
 #header-bar .on-navbar {
   color: #FFFBB7
 }
 
-.navbar-right a{
-  font-size: 16px;
+#header-bar ul li a{
+  color: rgba(68, 58, 98, 1);
 }
 
 .navbar-left {
@@ -44,11 +50,21 @@
   position: relative
 }
 
+.navbar-right a{
+  font-size: 16px;
+}
+
 .navbar-left a{
   padding-top: 11px;
   font-size: 20px;
   position: absolute;
 }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background: transparent;
+}
+
+/*homepage (food-images and form)*/
 .food-icons:hover {
   opacity: 1;
   font-size: 12px;
@@ -72,13 +88,18 @@
 }
 
 .food-icons span{
-  background-color: rgba(255,255,255,0.6)
+  background-color: rgba(255,255,255,0.6);
+  font-weight: bolder;
 }
+
+.cuisines-options {
+  display:none;
+}
+
 
 .active-icon {
   opacity: 1;
   font-size: 12px;
-
 }
 
 .flash-icon {
@@ -86,15 +107,33 @@
   font-size: 0px;
 }
 
-span {
-  font-weight: normal;
+#search-criteria label, #search-criteria h1 {
+  font-weight: bolder;
+  color: rgba(68, 68, 98, 1)
 }
 
-body {
-    background-color: white;
-    background-size: 450px;
-    font-family: Open Sans, Helvetica, sans-serif;
-    font-weight: bold;
+#left-padding-20 {
+  padding-left: 20px;
+}
+
+#find-result {
+  background-color: rgba(68, 58, 98, 0.9);
+  color: #FFFBB7;
+  font-weight: bolder;
+}
+
+#find-result:hover {
+  color: #FFFBB7;
+}
+
+/*result and showhistory page*/
+
+#try-again button {
+  color: rgba(68, 58, 98, 0.9);
+}
+
+#restaurant-image {
+  width: 100%;
 }
 
 #restaurant-name-rating h4{
@@ -111,82 +150,17 @@ body {
 .text-align-right {
   text-align: right;
 }
-#restaurant-image {
-  width: 100%
+
+#go-profile {
+  color: rgba(68, 58, 98, 0.9);
 }
 
-.btn-default {
-    border-radius: 4px;
-    color: #000;
-    background: #ffa33a;
-    border: 0;
-    transition: all .5s ease;
+iframe {
+  width: 100%;
+  border: 1px;
+  float: right;
 }
 
-.btn-default:hover {
-    background: #ffc52d;
-}
-
-/*main container*/
-
-.container {
-    /*border: 1px solid black;*/
-    width: 700px;
-    margin-top: 60px;
-    padding-bottom: 20px;
-    background-color: #776666;
-    /*box-shadow: inset 5px 5px 10px grey,inset -5px -5px 10px grey;*/
-}
-
-
-
-#shake {
-  background-color: rgba(68, 58, 98, 0.9);
-  color: #FFFBB7;
-  font-weight: bolder;
-}
-
-#shake:hover {
-  color: #FFFBB7;
-}
-
-#left-padding-20 {
-  padding-left: 20px;
-}
-
-.container-fluid {
-  margin-top: 50px;
-}
-.container-border {
-  border: 1px solid grey;
-  border-radius: 25px;
-  padding: 0px;
-}
-
-
-.cuisines-options {
-  display:none;
-}
-
-.favorite {
-  border: 2px solid grey;
-  padding: 5px;
-}
-
-/*See restaraunt on Yelp link*/
-
-a {
-    color: #ffa31a;
-    transition: all .2s ease;
-    border-bottom: 1px solid transparent;
-    text-decoration: none;
-}
-
-a:hover, a:active {
-    color: #ffdd8f;
-    text-decoration: none;
-    border-bottom: 1px solid #ffdd8f;
-}
 
 .padding-right-0 {
   padding-right: 0px;
@@ -205,15 +179,12 @@ a:hover, a:active {
     border-bottom: 0px;
 }
 
-iframe {
-  width: 100%;
-  border: 1px;
-  float: right;
+
+
+
+.favorite {
+  border: 2px solid grey;
+  padding: 5px;
 }
 
-/*facebook pic*/
-#facebook-pic{
-  width: 15px;
-  height: 15px;
-  margin-bottom: 1px;
-}
+/*See restaraunt on Yelp link*/

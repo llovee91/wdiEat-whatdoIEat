@@ -15,31 +15,30 @@
 		<!-- Make it convenient to grab user's id in views through javascript -->
 		<div id="user" style="display: none"><% if (user) {%><%= JSON.stringify(user) %><%} %></div>
 
-
 			<!-- navigation bar for when a session is found -->
 			<nav class ="navbar navbar-default navbar-static-top" id="header-bar">
 				<div class="navbar-left">
-					<a id="homepage-logo" href="/">WDIEat</a>
+					<a href="/">WDIEat</a>
 				</div>
 				<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<% if (user) {%>
-							<a class="dropdown-toggle on-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="/profile">My Favorites</a></li>
-								<% if (user.local.name) {%>
-									<li><a href="/profile/<%= user.id%>/edit" >Account Settings</a></li>
-								<% } %>
-								<li><a href="/logout">Logout</a></li>
-							</ul>
-						<!-- navigation bar for when no session is found -->
-						<% } else {%>
-							<a class="btn-md on-navbar" href="/session" class="btn btn-default btn-sm">My Favorites</a>
-						<% } %>
-					</li>
-				</ul>
-			</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<% if (user) {%>
+								<a class="dropdown-toggle on-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="/profile">My Favorites</a></li>
+									<% if (user.local.name) {%>
+										<li><a href="/profile/<%= user.id%>/edit" >Account Settings</a></li>
+									<% } %>
+									<li><a href="/logout">Logout</a></li>
+								</ul>
+							<!-- navigation bar for when no session is found -->
+							<% } else {%>
+								<a class="btn-md on-navbar" href="/session" class="btn btn-default btn-sm">My Favorites</a>
+							<% } %>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</div>
 		<div class="container-fluid row">

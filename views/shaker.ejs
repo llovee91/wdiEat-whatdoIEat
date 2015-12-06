@@ -17,7 +17,7 @@
         <input type="text" id="term" class="form-control" name="term" placeholder="Find: burger, pizza, sushi...">
       </div>
 
-      <button disabled="true" type="submit" id="shake" class="btn btn-primary btn-block">Locating...</button>
+      <button disabled="true" type="submit" id="find-result" class="btn btn-primary btn-block">Locating...</button>
       <!-- <p id="location-status">Loading Current Location...</p> -->
     </div>
     </div>
@@ -79,20 +79,20 @@
       var longitude = position.coords.longitude;
       $('#cll').val(latitude+','+longitude)
         $('#location-status').text('Current Location found!') // inform user location found
-        $('#shake').removeAttr('disabled') // allow the user to proceed once finished locating
-        $('#shake').text('Feeling Lucky!')
+        $('#find-result').removeAttr('disabled') // allow the user to proceed once finished locating
+        $('#find-result').text('Feeling Lucky!')
     }
 
     // if error..
     function error() {
       $('#location-status').text('Current Location Service Disabled (Notes: This would affect the accuracy of result)') // inform the user the result of not allowing geolocation
-      $('#shake').text('Find Food!')
-      $('#shake').removeAttr('disabled') // allow the user to proceed
+      $('#find-result').text('Find Food!')
+      $('#find-result').removeAttr('disabled') // allow the user to proceed
     }
   })
 
   // when form is submitted to make a request to yelp...
-  $('#shake').click(function(){
+  $('#find-result').click(function(){
     // if location field is empty, then use the current city retrieved from freegeoip
     if ($('#location').val() === "" && current) {
       $('#location').val(current)
