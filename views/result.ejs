@@ -60,7 +60,7 @@
     location.reload()
   })
     var favorite = JSON.parse($('#result').text())
-  var address = favorite.location.display_address[0] + ", " + favorite.location.display_address[1]
+  var address = favorite.location.display_address.toString()
   // if session exists, store the user's id into userId
   if ($('#user').text().length !== 0) {
     var userId = JSON.parse($('#user').text())._id
@@ -70,7 +70,7 @@
     $('#guest-proceed').attr('href','/session?favoriteId='+favoriteId)
   }
 
-  $('#save').on('click', function() {
+  $('#save-result').on('click', function() {
     // if a user is logged in, then  make a POST request to favorites/:user_id
       $.ajax({
         url: '/favorites/'+userId, // make a post request to create a favorite and attache it to the current user
@@ -84,7 +84,7 @@
       })
   })
 
-  // set the iframe to be the same height as the restaurant-image 
+  // set the iframe to be the same height as the restaurant-image
   setInterval(function(){
     var imageHeight = $('#restaurant-image').css('height')
     $('iframe').css('height', imageHeight)

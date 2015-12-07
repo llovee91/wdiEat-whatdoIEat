@@ -1,8 +1,8 @@
-<div class="col-xs-2"></div>
+<div class="col-xs-3"></div>
 <!-- create a div (parent container) to hold all the saved entries -->
-<div class="col-xs-8" id="favorites"></div>
+<div class="col-xs-6" id="favorites"></div>
 
-<div class="col-xs-2"></div>
+<div class="col-xs-3"></div>
 <script>
   // if user exists, grab the current user's id and store it in userId
   if ($('#user').text().length !== 0) {
@@ -25,7 +25,7 @@
           categories.push(" "+ categoriesArray[i][0])
         }
 
-        var entry = '<div class="favorite row"><div class="col-xs-4"><img src="' + favorite.image_url.replace('ms.jpg','ls.jpg') + '"/><br><button class="deleteFavorite" id="' + favorite._id + '">Delete</button><br><a href="favorite/' + favorite._id +  '"><button>See Restaurant</button></a></div><div class="col-xs-8"><p>' + favorite.name + '</p><p>'+ categories.toString() +'</p><p>Address: '+ favorite.address +'</p><p>' + favorite.display_phone  + '</p><img src="' + favorite.rating_img_url + '"/><br><a href="' + favorite.url + '"> See Yelp Page</a><br></div>'
+        var entry = '<div class="favorite row"><div class="col-xs-3"><img class="restaurant-image" src="' + favorite.image_url.replace('ms.jpg','ls.jpg') + '"/></div><div class="col-xs-5"><a href="favorite/' + favorite._id+ '"><h4>' + favorite.name + '</h4></a><img src="' + favorite.rating_img_url + '"/><br><span>'+ categories.toString() +'</span><br><span>'+ favorite.address +'</span><br><span>' + favorite.display_phone  + '</span><br></div><div class="col-xs-4"><button class="deleteFavorite" id="' + favorite._id + '">Delete</button></div></div><hr>'
         $('#favorites').append(entry)
 
         $delete = $('#'+favorite._id) // select the delete button by id
