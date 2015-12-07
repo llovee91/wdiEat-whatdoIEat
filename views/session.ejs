@@ -1,11 +1,12 @@
-<% if (messages) { %>
-  <span><%=messages%></span>
-<% } %>
+
 <div class="row">
   <div class="col-xs-4"></div>
   <div id="session-form" class="col-xs-4">
     <div id="login">
     <h3>Sign in</h3>
+    <% if (messages) { %>
+      <p class="messages"><%=messages%></sp>
+    <% } %>
     <!-- <span>Enter your <strong>email address</strong> and <strong>password</strong></span> -->
     <form action="/login" method="post">
         <div class="form-group">
