@@ -118,13 +118,13 @@ a:hover, a:active {
   padding-left: 20px;
 }
 
-#find-result, .session-button {
+#find-result, .session-button, #edit-button {
   background-color: rgba(68, 58, 98, 0.9);
   color: #FFFBB7;
   font-weight: bolder;
 }
 
-#find-result:hover, .session-button:hover {
+#find-result:hover, .session-button:hover, #edit-button:hover {
   color: #FFFBB7;
 }
 
@@ -186,7 +186,7 @@ iframe {
   display: none;
 }
 
-#session-form h3{
+#session-form h3, #edit-form h3{
   text-align: center;
 }
 
