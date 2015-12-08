@@ -49,7 +49,7 @@ function index(req,res) {
 }
 
 function edit(req,res) {
-  Favorite.findOne({name: req.body.name}, function(err, favorite) {
+  Favorite.findOne({name: req.body.name, _owner: undefined}, function(err, favorite) {
     favorite._owner = req.body.userId
     favorite.save(function(err){ // save the change
       if (err) res.send(err)
@@ -84,6 +84,7 @@ function kreate(req,res) {
   // save favorite
   favorite.save(function(err){
     if (err) res.send(err)
+
   })
 }
 
