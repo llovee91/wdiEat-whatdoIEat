@@ -48,6 +48,16 @@ function index(req,res) {
   })
 }
 
+function edit(req,res) {
+  Favorite.findOne({name: req.body.name}, function(err, favorite) {
+    favorite._owner = req.body.userId
+    favorite.save(function(err){ // save the change
+      if (err) res.send(err)
+    })
+  })
+  res.render('profile', {user: req.user})
+}
+
 // delete the saved entry
 function destroy(req,res) {
   Favorite.findOneAndRemove({_id: req.params.favorite_id}, // find the saved entry using id
@@ -57,25 +67,25 @@ function destroy(req,res) {
   )
 }
 
-// function kreate(req,res) {
-//   // instantiate an object from Favorite
-//   var favorite = new Favorite()
-//
-//   // set the properties using the values passed in from the ajax request (using "data" that ajax provides for the POST method)
-//   favorite.name = req.body.name
-//   favorite.id = req.body.id
-//   favorite.rating = req.body.rating
-//   favorite.url = req.body.url
-//   favorite.display_phone = req.body.display_phone
-//   favorite.address = req.body.address
-//   favorite.categories = req.body.categories // array
-//   favorite.image_url = req.body.image_url
-//   favorite.rating_img_url_large = req.body.rating_img_url_large
-//   // save favorite
-//   favorite.save(function(err){
-//     if (err) res.send(err)
-//   })
-// }
+function kreate(req,res) {
+  // instantiate an object from Favorite
+  var favorite = new Favorite()
+
+  // set the properties using the values passed in from the ajax request (using "data" that ajax provides for the POST method)
+  favorite.name = req.body.name
+  favorite.id = req.body.id
+  favorite.rating = req.body.rating
+  favorite.url = req.body.url
+  favorite.display_phone = req.body.display_phone
+  favorite.address = req.body.address
+  favorite.categories = req.body.categories // array
+  favorite.image_url = req.body.image_url
+  favorite.rating_img_url = req.body.rating_img_url
+  // save favorite
+  favorite.save(function(err){
+    if (err) res.send(err)
+  })
+}
 
 // Create a function to search for a saved entry using its ID and returned that object to be used in show.ejs
 function show(req, res) {
@@ -92,6 +102,7 @@ module.exports = {
   createFavorite: create,
   showMyFavorites: index,
   deleteFavorite: destroy,
-  showFavorite: show
-  // kreateFavorite: kreate
+  showFavorite: show,
+  kreateFavorite: kreate,
+  editFavorite: edit
 }

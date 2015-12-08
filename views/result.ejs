@@ -7,7 +7,10 @@
           <!-- provide option to save result if session exists -->
           <% if (user) {%>
             <a href="/profile"><img id="save-result" src="images/heart.png"></a>
-          <% } %>
+
+          <% } else { %>
+            <a href="/session"><img id="save-result" src="images/heart.png"></a>
+          <% }%>
         </h4>
         <img src=" <%= chosen.rating_img_url %>"><br>
       </div>
@@ -72,16 +75,33 @@
 
   $('#save-result').on('click', function() {
     // if a user is logged in, then  make a POST request to favorites/:user_id
+    if (userId) {
       $.ajax({
-        url: '/favorites/'+userId, // make a post request to create a favorite and attache it to the current user
+        url: '/favorites/'+userId, // make a post request to create a favorite and attach it to the current user
         method: 'POST',
         contentType: 'application/json',
         // pass the information to be saved into the new Favorite object
         data: JSON.stringify({"name": favorite.name, "rating": favorite.rating, url: favorite.url , display_phone: favorite.display_phone, address: address, categories: favorite.categories, image_url: favorite.image_url, rating_img_url: favorite.rating_img_url, _owner: userId, id: favorite.id}),
         success: function(data) {
           console.log('COOL!')
+
         }
       })
+    }
+      else {
+        localStorage.entry =  favorite.name
+        $.ajax({
+          url: '/favorites/', // make a post request to create a favorite
+          method: 'POST',
+          contentType: 'application/json',
+          // pass the information to be saved into the new Favorite object
+          data: JSON.stringify({"name": favorite.name, "rating": favorite.rating, url: favorite.url , display_phone: favorite.display_phone, address: address, categories: favorite.categories, image_url: favorite.image_url, rating_img_url: favorite.rating_img_url, id: favorite.id}),
+          success: function(data) {
+            console.log('Wow!')
+          }
+        })
+      }
+
   })
 
   // set the iframe to be the same height as the restaurant-image
