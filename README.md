@@ -4,4 +4,4 @@ Wdi(what do I)Eat is an app that helps users make a very important life decision
 This app uses the Yelp API to return a random restaurant based on parameters set by the user. The app can also provide a completely random result if no parameters are chosen.
 
 # Wireframe
-![GitHub Logo](/public/wireframe.png)
+![GitHub Logo](/public/images/wireframe.png)
