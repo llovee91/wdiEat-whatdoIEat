@@ -6,6 +6,11 @@ This app uses the Yelp API to return a random restaurant based on parameters set
 # Technologies
 wdiEat was built using HTML, CSS, Bootstrap, Javascript, JQuery library, Node and Express libraries, and MongoDB.
 
+## Third Party APIs
+1. Geolocation: geolocation was used to get the current location of the user. However, geolocation requires permissions from users so it would fail if a user denies to share their location.
+2. Freegeoips: POST request was made to freegeoip to obtain an estimated longitude, latitude and city of the user’s current location. Freegeoips does not require permission from the user thus it was used as a backup in case if a user denies to share their location.
+3. Yelp: GET request was made to Yelp to obtain a list of restaurants that best match the user’s needs.
+
 # Wireframe
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/wireframe.png)
 
