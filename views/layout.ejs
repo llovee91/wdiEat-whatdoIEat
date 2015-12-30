@@ -27,7 +27,7 @@
 							<% if (user) {%>
 								<a class="dropdown-toggle on-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.local.name || user.facebook.name %><span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="/profile">My Favorites</a></li>
+									<li><a id="see-favorite" href="/profile">My Favorites</a></li>
 									<% if (user.local.name) {%>
 										<li><a href="/profile/<%= user.id%>/edit" >Account Settings</a></li>
 									<% } %>
@@ -36,7 +36,7 @@
 							<!-- navigation bar for when no session is found -->
 							<% } else {%>
 								<!-- if session doesn't exist, direct user to login/signup -->
-								<a class="btn-md on-navbar" href="/session" class="btn btn-default btn-sm">Login</a>
+								<a class="btn-md on-navbar" id="go-session" href="/session" class="btn btn-default btn-sm">Login</a>
 							<% } %>
 						</li>
 					</ul>
@@ -46,5 +46,14 @@
 		<div class="container-fluid row">
 		<%- body %>
 		</div>
+		<script>
+			$('#go-session').click(function(){
+				localStorage.removeItem('entry')
+			})
+
+			$('#see-favorite').click(function(){
+				localStorage.removeItem('entry')
+			})
+		</script>
 	</body>
 </html>

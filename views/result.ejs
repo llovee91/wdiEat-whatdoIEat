@@ -89,6 +89,7 @@
       })
     }
       else {
+        // if save was clicked when no session found, store the current result in localStorage
         localStorage.entry =  favorite.name
         $.ajax({
           url: '/favorites/', // make a post request to create a favorite
