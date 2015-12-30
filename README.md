@@ -8,11 +8,10 @@ This app uses the Yelp API to return a random restaurant based on parameters set
 
 #User Stories
 1. As a user, I want to find a place to eat that's close to me, without having to make my own decisions
-
 2. As a user, I’d like the choice to provide input to the decision
-
 3. As a user, I want to view the main page without logging in
-
 4. As a user, once I’ve found the place to eat, I want to know basic information about it such as address, location, contact info, reviews etc.
-
 5. As a user, if I don’t like the eatery chosen for me, I would like to the chance to try again
+
+###Future Implementation
+1. A more accurate location service/api should be implemented in case a user declines to "share location" or a user is using a browser that does not support geolocation
