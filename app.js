@@ -22,7 +22,7 @@ var favoriteRoutes = require('./routes/favorites.js')
 // mongoose.connect('mongodb://localhost/wdiEat'
 
 //mongoos connection heroku
-mongoose.connect('mongodb://johnm589:johnm589@ds059644.mongolab.com:59644/wdi-eat'
+mongoose.connect('mongodb://llovee91:llovee91@ds039195.mongolab.com:39195/wdi-eat'
 , function(err){
 	if(err) return console.log('Cannot connect :(')
 	console.log('Connected to MongoDB. Sweet!')
@@ -64,9 +64,6 @@ app.use('/', shakerRoutes)
 app.use('/', favoriteRoutes)
 
 // start the server on port
-// app.listen(port, function(){
-// 	console.log("Server Running!", port)
-// })
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(port, function(){
+	console.log("Server Running!", port)
+})
