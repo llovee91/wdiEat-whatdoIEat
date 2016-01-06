@@ -2,6 +2,9 @@
   "name": "wdieat",
   "version": "1.0.0",
   "description": "wdiEat is an app that helps user to decide what to eat by generating random result through the use of Yelp search-api",
+  "engines": {
+    "node": "4.1.1"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
