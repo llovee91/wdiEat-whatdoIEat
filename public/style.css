@@ -2,6 +2,9 @@
     background: #ffc52d;
 }*/
 
+body {
+  min-width: 1200px;
+}
 /*general*/
 span {
   font-weight: normal;
