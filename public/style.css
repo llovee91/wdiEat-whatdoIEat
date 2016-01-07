@@ -2,9 +2,7 @@
     background: #ffc52d;
 }*/
 
-container-fluid {
-  min-width: 1200px;
-}
+
 /*general*/
 span {
   font-weight: normal;
@@ -27,6 +25,7 @@ a:hover, a:active {
 /*navigation bar and layout*/
 .container-fluid {
   margin-top: 40px;
+  min-width: 1200px;
 }
 
 #header-bar {
