@@ -77,7 +77,15 @@
       $('#cll').val(latitude+','+longitude)
         $('#find-result').removeAttr('disabled') // allow the user to proceed once finished locating
         $('#find-result').text('Feeling Lucky!')
-        console.log('woow')
+        console.log(latitude+','+longitude)
+      $.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude +'&key=AIzaSyA_X-vj3xIoO8GLmr1YKR13B1JGOA_GE2M',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+          current = data.results[0]["address_components"][3]["long_name"]
+        }
+      })
     }
 
     // if error..
