@@ -77,7 +77,6 @@ shakerRouter.post('/result', function(req,res) {
        } else {
         // if the request was successful and the result includes 0 restaurants, prompt user to try again
            res.render('shaker', {user:req.user, message: req.flash('NoResult', 'No Result!Try Again')})
-           console.log('no result!')
          }
        }
      })
