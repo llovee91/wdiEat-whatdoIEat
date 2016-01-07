@@ -3,7 +3,7 @@ module.exports = {
   'facebookAuth': {
     'clientID': '1677542555817623',
     'clientSecret': '8fa5e6fae35f14427803597eac145601',
-    'callbackURL': 'http://wdi-eat.herokuapp.com/wdi/auth/facebook/callback',
+    'callbackURL': 'http://wdi-eat.herokuapp.com/auth/facebook/callback',
     'profileFields': ['emails', 'displayName']
   },
   'yelpAuth': {
