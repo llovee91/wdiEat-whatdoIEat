@@ -75,9 +75,7 @@
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       $('#cll').val(latitude+','+longitude)
-        $('#find-result').removeAttr('disabled') // allow the user to proceed once finished locating
-        $('#find-result').text('Feeling Lucky!')
-        console.log(latitude+','+longitude)
+
       $.ajax({
         url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude +'&key=AIzaSyA_X-vj3xIoO8GLmr1YKR13B1JGOA_GE2M',
         type: 'GET',
@@ -86,6 +84,8 @@
           current = data.results[0]["address_components"][3]["long_name"]
         }
       })
+      $('#find-result').removeAttr('disabled') // allow the user to proceed once finished locating
+      $('#find-result').text('Feeling Lucky!')
     }
 
     // if error..
