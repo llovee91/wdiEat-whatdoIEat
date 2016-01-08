@@ -14,15 +14,18 @@ wdiEat was built using HTML, CSS, Bootstrap, Javascript, JQuery library, Node an
 # Wireframe
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/wireframe.png)
 
-#### Main page
+
+### Main page
 Users can search for a restaurant by setting the location, type of cuisines and keywords or they can proceed to login/signup
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/homepage.png)
 
-#### Result
+
+### Result
 Shows information of the randomly selected restaurants. Users can either save the restaurant into their account history or try again to find another restaurant
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/result.png)
 
-#### Saved Results
+
+### Saved Results
 Users will have access and the ability to manage their saved results
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/history.png)
 
