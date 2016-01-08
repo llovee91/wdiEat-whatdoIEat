@@ -27,10 +27,10 @@
 
 <script>
   // array to hold the names of the images
-  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bbq", "breakfast_brunch", "bubbletea", "chinese", "coffee", "desserts", "french", "german", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "spanish", "taiwanese", "tea", "thai", "vegetarian", "vietnamese"]
+  var foodIcons = ["newamerican", "tradamerican", "asianfusion", "bbq", "breakfast_brunch", "bubbletea", "chinese", "coffee", "desserts", "french", "german", "greek", "italian", "japanese", "korean", "latin", "malaysian", "mediterranean", "mexican", "mideastern", "polish", "portuguese", "spanish", "taiwanese", "tea", "thai", "vegetarian", "vietnamese", "seafood", "wineries"]
 
   // array to hold the labels for cuisines-options input fields
-  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Bubble Tea", "Chinese", "Coffee", "Dessert", "French", "German", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegetarian", "Vietnamese"]
+  var categories = ["American (New)", "American (Traditional)", "Asian Fusion", "Barbeque", "Breakfast & Brunch", "Bubble Tea", "Chinese", "Coffee", "Dessert", "French", "German", "Greek", "Italian", "Japanese", "Korean", "Latin", "Malaysian", "Mediterranean", "Mexican", "Middle Eastern", "Polish", "Portuguese", "Spanish", "Taiwanese", "Tearooms", "Thai", "Vegetarian", "Vietnamese", "Seafood", "Wineries"]
 
   var count = 0
   // add the images for each cuisine
@@ -126,4 +126,14 @@
     $($('.food-icons')[random]).toggleClass('flash-icon') // make the selected icon flash
     clear = random
   }, 2000)
+
+  setInterval(function(){
+    if ($('body').css('width') >= 1415 + 'px') {
+      $('#seafood').css('display','none')
+      $('#wineries').css('display','none')
+    } else {
+      $('#seafood').css('display','inline-block')
+      $('#wineries').css('display','inline-block')
+    }
+  }, 1)
 </script>
