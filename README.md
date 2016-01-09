@@ -3,6 +3,9 @@ Wdi(what do I)Eat is an app that helps users make a very important life decision
 
 This app uses the Yelp API to return a random restaurant based on parameters set by the user. The app can also provide a completely random result if no parameters are chosen.
 
+### Deploy on Heroku
+[wdiEat | What Do I Eat](http://wdi-eat.herokuapp.com/)
+
 ### Main page
 Users can search for a restaurant by setting the location, type of cuisines and keywords or they can proceed to login/signup
 ![alt tag](https://raw.githubusercontent.com/llovee91/wdiEat-whatdoIEat/master/public/images/homepage.png)
